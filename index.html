@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Friends&Mel | Seu pet em boas mãos</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ==================== PÁGINA INICIAL ==================== -->
+
+    <section id="home" class="hero">
+
+        <nav class="navbar">
+
+            <div class="logo">
+                🐾
+                <span>Friends&<span>Mel</span></span>
+            </div>
+
+        </nav>
+
+
+        <div class="hero-content">
+
+            <div class="hero-text">
+
+                <span class="tag">
+                    🐶 Feito para quem ama pets
+                </span>
+
+                <h1>
+                    O cuidado que seu
+                    <span>melhor amigo</span>
+                    merece.
+                </h1>
+
+                <p>
+                    Um espaço completo para cuidar, acompanhar e
+                    proporcionar uma vida mais feliz e saudável para
+                    quem está sempre ao seu lado.
+                </p>
+
+                <div class="hero-buttons">
+
+              <button
+    class="btn btn-primary btn-large"
+    onclick="window.location.href='cadastro.html'">
+    Começar agora 
+</button>
+                    <button
+                        class="btn btn-link"
+                        onclick="mostrarTela('login')">
+                        Já tenho uma conta
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <div class="pet-card">
+
+                <div class="pet-circle">
+                    🐕
+                </div>
+
+                <div class="floating-card card-top">
+                    <strong>Amor</strong>
+                    <small>em cada detalhe</small>
+                </div>
+
+                <div class="floating-card card-bottom">
+                     <strong>+10k</strong>
+                    <small>pets felizes</small>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="paw paw-1">🐾</div>
+        <div class="paw paw-2">🐾</div>
+
+    </section>
+
+
+    <!-- ==================== CADASTRO ==================== -->
+
+    <section id="cadastro" class="auth-screen hidden">
+
+        <div class="auth-box">
+
+            <button class="back" onclick="mostrarTela('home')">
+             Voltar
+            </button>
+
+            <div class="auth-icon">
+                🐾
+            </div>
+
+            <h2>Crie sua conta</h2>
+
+            <p class="subtitle">
+                Comece a cuidar ainda melhor do seu companheiro.
+            </p>
+
+
+            <form onsubmit="cadastrar(event)">
+
+                <label for="nome">
+                    Seu nome
+                </label>
+
+                <input
+                    type="text"
+                    id="nome"
+                    placeholder="Digite seu nome"
+                    required
+                >
+
+
+                <label for="emailCadastro">
+                    E-mail
+                </label>
+
+                <input
+                    type="email"
+                    id="emailCadastro"
+                    placeholder="seu@email.com"
+                    required
+                >
+
+
+                <label for="senhaCadastro">
+                    Senha
+                </label>
+
+                <input
+                    type="password"
+                    id="senhaCadastro"
+                    placeholder="Crie uma senha"
+                    required
+                >
+
+
+                <button
+                    class="btn btn-primary full"
+                    type="submit">
+                    Criar minha conta
+                </button>
+
+            </form>
+
+
+            <p class="switch">
+                Já possui uma conta?
+
+                <button onclick="mostrarTela('login')">
+                    Entrar
+                </button>
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- ==================== LOGIN ==================== -->
+
+    <section id="login" class="auth-screen hidden">
+
+        <div class="auth-box">
+
+            <button class="back" onclick="mostrarTela('home')">
+             Voltar
+            </button>
+
+            <div class="auth-icon">
+                🐶
+            </div>
+
+            <h2>Bem-vindo de volta!</h2>
+
+            <p class="subtitle">
+                Entre para continuar cuidando do seu pet.
+            </p>
+
+
+            <form onsubmit="login(event)">
+
+                <label for="emailLogin">
+                    E-mail
+                </label>
+
+                <input
+                    type="email"
+                    id="emailLogin"
+                    placeholder="seu@email.com"
+                    required
+                >
+
+
+                <label for="senhaLogin">
+                    Senha
+                </label>
+
+                <input
+                    type="password"
+                    id="senhaLogin"
+                    placeholder="Digite sua senha"
+                    required
+                >
+
+
+                <div class="forgot">
+                    <a href="#">
+                        Esqueci minha senha
+                    </a>
+                </div>
+
+
+                <button
+                    class="btn btn-primary full"
+                    type="submit">
+                    Entrar
+                </button>
+
+            </form>
+
+
+            <p class="switch">
+                Ainda não possui uma conta?
+
+                <button onclick="mostrarTela('cadastro')">
+                    Criar conta
+                </button>
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- ==================== SITE PRINCIPAL ==================== -->
+
+    <section id="site" class="site-screen hidden">
+
+        <nav class="navbar dashboard-nav">
+
+            <div class="logo">
+                🐾
+                <span>Friends&<span>Mel</span></span>
+            </div>
+
+            <div class="user-area">
+
+                <span id="userName">
+                    Olá!
+                </span>
+
+                <button
+                    class="btn btn-outline"
+                    onclick="logout()">
+                    Sair
+                </button>
+
+            </div>
+
+        </nav>
+
+
+        <main class="dashboard">
+
+            <div class="welcome">
+
+                <span class="tag">
+                    ✨ Área do tutor
+                </span>
+
+                <h1>
+                    Olá,
+                    <span id="welcomeName">
+                        amigo
+                    </span>!
+                </h1>
+
+                <p>
+                    Tudo pronto para deixar o dia do seu pet ainda melhor?
+                </p>
+
+            </div>
+
+
+            <div class="dashboard-grid">
+
+                <div class="dashboard-card">
+
+                    <div class="dashboard-icon">
+                        🐕
+                    </div>
+
+                    <h3>
+                        Meus pets
+                    </h3>
+
+                    <p>
+                        Cadastre e acompanhe seus companheiros.
+                    </p>
+
+                    <button>
+                        Ver pets
+                    </button>
+
+                </div>
+
+
+                <div class="dashboard-card">
+
+                    <div class="dashboard-icon">
+                        ❤️
+                    </div>
+
+                    <h3>
+                        Cuidados
+                    </h3>
+
+                    <p>
+                        Organize vacinas, consultas e cuidados.
+                    </p>
+
+                    <button>
+                        Ver cuidados
+                    </button>
+
+                </div>
+
+
+                <div class="dashboard-card">
+
+                    <div class="dashboard-icon">
+                        📅
+                    </div>
+
+                    <h3>
+                        Agenda
+                    </h3>
+
+                    <p>
+                        Nunca mais esqueça um compromisso.
+                    </p>
+
+                    <button>
+                        Minha agenda 
+                    </button>
+
+                </div>
+
+            </div>
+
+        </main>
+
+    </section>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>

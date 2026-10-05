@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Friends&Mel | Login</title>
+
+<style>
+/* =========================
+CONFIGURAÇÕES GERAIS
+========================== */
+
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+font-family: Arial, Helvetica, sans-serif;
+}
+
+:root {
+--laranja: #e8752a;
+--laranja-claro: #f39a55;
+--marrom: #3d3028;
+--marrom-medio:  #ffe8d6;
+--creme: #fff7ed;
+--branco: #ffffff;
+}
+
+body {
+min-height: 100vh;
+
+background:
+radial-gradient(
+circle at 15% 20%,
+rgba(232, 117, 42, 0.18) 0 35px,
+transparent 36px
+),
+radial-gradient(
+circle at 85% 75%,
+rgba(232, 117, 42, 0.12) 0 45px,
+transparent 46px
+),
+linear-gradient(135deg, #fff8ef, #f5dfca);
+
+color: var(--marrom);
+
+display: flex;
+align-items: center;
+justify-content: center;
+
+overflow: hidden;
+
+position: relative;
+}
+
+
+/* =========================
+PATINHAS DECORATIVAS
+========================== */
+
+.paw {
+position: absolute;
+
+font-size: 55px;
+
+opacity: 0.09;
+
+color: var(--marrom);
+
+user-select: none;
+}
+
+.paw1 {
+top: 8%;
+left: 8%;
+transform: rotate(-20deg);
+}
+
+.paw2 {
+bottom: 8%;
+left: 13%;
+transform: rotate(18deg);
+font-size: 75px;
+}
+
+.paw3 {
+top: 12%;
+right: 10%;
+transform: rotate(25deg);
+font-size: 70px;
+}
+
+.paw4 {
+bottom: 12%;
+right: 8%;
+transform: rotate(-15deg);
+}
+
+
+/* =========================
+CONTAINER PRINCIPAL
+========================== */
+
+.login-container {
+width: min(900px, 92%);
+
+min-height: 560px;
+
+display: grid;
+
+grid-template-columns: 1fr 1fr;
+
+background: rgba(255, 255, 255, 0.94);
+
+border-radius: 30px;
+
+overflow: hidden;
+
+box-shadow:
+0 25px 70px rgba(43, 22, 14, 0.20);
+
+position: relative;
+
+z-index: 2;
+}
+
+
+/* =========================
+PARTE ESQUERDA
+========================== */
+
+.welcome {
+background: var(--marrom);
+
+color: var(--branco);
+
+padding: 55px 45px;
+
+display: flex;
+
+flex-direction: column;
+
+justify-content: center;
+
+position: relative;
+
+overflow: hidden;
+}
+
+.welcome::before,
+.welcome::after {
+content: "";
+
+position: absolute;
+
+border-radius: 50%;
+
+background: var(--laranja);
+
+opacity: 0.15;
+}
+
+.welcome::before {
+width: 260px;
+height: 260px;
+
+top: -100px;
+right: -100px;
+}
+
+.welcome::after {
+width: 190px;
+height: 190px;
+
+bottom: -90px;
+left: -70px;
+}
+
+
+/* LOGO */
+
+.logo {
+font-size: 31px;
+
+font-weight: 800;
+
+color: var(--laranja-claro);
+
+margin-bottom: 35px;
+
+position: relative;
+
+z-index: 1;
+}
+
+.logo span {
+color: white;
+}
+
+
+/* ÍCONE */
+
+.pet-icon {
+font-size: 80px;
+
+margin-bottom: 18px;
+
+position: relative;
+
+z-index: 1;
+}
+
+
+/* TÍTULO */
+
+.welcome h1 {
+font-size: 38px;
+
+line-height: 1.1;
+
+margin-bottom: 18px;
+
+position: relative;
+
+z-index: 1;
+}
+
+.welcome h1 span {
+color: var(--laranja-claro);
+}
+
+
+/* TEXTO */
+
+.welcome p {
+color: #eaded8;
+
+line-height: 1.6;
+
+font-size: 16px;
+
+max-width: 330px;
+
+position: relative;
+
+z-index: 1;
+}
+
+
+/* =========================
+PARTE DO LOGIN
+========================== */
+
+.login {
+padding: 55px 50px;
+
+display: flex;
+
+flex-direction: column;
+
+justify-content: center;
+
+background: var(--creme);
+}
+
+.login h2 {
+font-size: 32px;
+
+color: var(--marrom);
+
+margin-bottom: 8px;
+}
+
+.subtitle {
+color: #80675b;
+
+margin-bottom: 30px;
+}
+
+
+/* CAMPOS */
+
+.input-group {
+margin-bottom: 19px;
+}
+
+label {
+display: block;
+
+font-weight: 700;
+
+margin-bottom: 8px;
+
+color: var(--marrom);
+}
+
+.input-box {
+position: relative;
+}
+
+.input-box span {
+position: absolute;
+
+left: 15px;
+
+top: 50%;
+
+transform: translateY(-50%);
+
+font-size: 19px;
+}
+
+input {
+width: 100%;
+
+padding: 15px 15px 15px 46px;
+
+border: 2px solid #ead6c5;
+
+border-radius: 13px;
+
+background: white;
+
+color: var(--marrom);
+
+font-size: 15px;
+
+outline: none;
+
+transition: 0.25s;
+}
+
+input:focus {
+border-color: var(--laranja);
+
+box-shadow:
+0 0 0 4px rgba(232, 117, 42, 0.12);
+}
+
+
+/* =========================
+OPÇÕES
+========================== */
+
+.options {
+display: flex;
+
+justify-content: space-between;
+
+align-items: center;
+
+margin: 3px 0 25px;
+
+font-size: 13px;
+}
+
+.remember {
+display: flex;
+
+align-items: center;
+
+gap: 7px;
+
+color: #6e554a;
+}
+
+.remember input {
+width: auto;
+
+accent-color: var(--laranja);
+}
+
+.forgot {
+color: var(--laranja);
+
+font-weight: bold;
+
+cursor: pointer;
+}
+
+
+/* =========================
+BOTÃO
+========================== */
+
+.btn-login {
+width: 100%;
+
+padding: 16px;
+
+border: none;
+
+border-radius: 13px;
+
+background: var(--laranja);
+
+color: white;
+
+font-size: 16px;
+
+font-weight: 800;
+
+cursor: pointer;
+
+transition: 0.25s;
+
+box-shadow:
+0 8px 20px rgba(232, 117, 42, 0.25);
+}
+
+.btn-login:hover {
+background: #cf5f19;
+
+transform: translateY(-2px);
+}
+
+
+/* =========================
+DIVISÓRIA
+========================== */
+
+.divider {
+display: flex;
+
+align-items: center;
+
+gap: 12px;
+
+margin: 24px 0;
+
+color: #a68c7e;
+
+font-size: 13px;
+}
+
+.divider::before,
+.divider::after {
+content: "";
+
+flex: 1;
+
+height: 1px;
+
+background: #dfcbb9;
+}
+
+
+/* =========================
+CADASTRO
+========================== */
+
+.register {
+text-align: center;
+
+color: #72594d;
+
+font-size: 14px;
+}
+
+.register a {
+color: var(--laranja);
+
+font-weight: 800;
+
+text-decoration: none;
+
+cursor: pointer;
+}
+
+
+/* =========================
+MENSAGEM DO JAVASCRIPT
+========================== */
+
+.message {
+margin-top: 15px;
+
+padding: 11px;
+
+border-radius: 10px;
+
+text-align: center;
+
+font-size: 14px;
+
+display: none;
+}
+
+.message.success {
+display: block;
+
+background: #e5f4df;
+
+color: #35612b;
+}
+
+.message.error {
+display: block;
+
+background: #ffe5df;
+
+color: #8a3324;
+}
+
+
+/* =========================
+RESPONSIVIDADE
+========================== */
+
+@media (max-width: 720px) {
+
+body {
+overflow: auto;
+
+padding: 25px 0;
+}
+
+.login-container {
+grid-template-columns: 1fr;
+
+min-height: auto;
+}
+
+.welcome {
+padding: 40px 30px;
+
+text-align: center;
+
+align-items: center;
+}
+
+.welcome h1 {
+font-size: 30px;
+}
+
+.login {
+padding: 40px 30px;
+}
+}
+</style>
+</head>
+
+
+<body>
+
+<!-- PATINHAS -->
+
+<div class="paw paw1">🐾</div>
+
+<div class="paw paw2">🐾</div>
+
+<div class="paw paw3">🐾</div>
+
+<div class="paw paw4">🐾</div>
+
+
+<!-- CONTEÚDO -->
+
+<main class="login-container">
+
+
+<!-- LADO ESQUERDO -->
+
+<section class="welcome">
+
+<div class="logo">
+Friends<span>&</span>Mel 
+</div>
+
+<div class="pet-icon">
+🐶
+</div>
+
+<h1>
+Seu pet merece
+<br>
+<span>um melhor amigo.</span>
+</h1>
+
+<p>
+Entre na Friends&Mel e encontre dicas,
+cuidados, serviços e uma comunidade
+apaixonada por animais.
+</p>
+
+</section>
+
+
+
+<!-- LADO DIREITO -->
+
+<section class="login">
+
+<h2>
+Bem-vindo! 🐾
+</h2>
+
+<p class="subtitle">
+Entre na sua conta para continuar.
+</p>
+
+
+<!-- FORMULÁRIO -->
+
+<form id="loginForm">
+
+
+<!-- E-MAIL -->
+
+<div class="input-group">
+
+<label for="email">
+E-mail
+</label>
+
+<div class="input-box">
+
+
+<input
+type="email"
+id="email"
+placeholder="Digite seu e-mail"
+required
+>
+
+</div>
+
+</div>
+
+
+
+<!-- SENHA -->
+
+<div class="input-group">
+
+<label for="password">
+Senha
+</label>
+
+<div class="input-box">
+
+
+<input
+type="password"
+id="password"
+placeholder="Digite sua senha"
+required
+>
+
+</div>
+
+</div>
+
+
+
+<!-- OPÇÕES -->
+
+<div class="options">
+
+<label class="remember">
+
+<input
+type="checkbox"
+id="remember"
+>
+
+Lembrar de mim
+
+</label>
+
+
+<span
+class="forgot"
+id="forgot"
+>
+Esqueci minha senha
+</span>
+
+</div>
+
+
+
+<!-- BOTÃO -->
+
+<button
+class="btn-login"
+type="submit"
+>
+Entrar na Friends&Mel 
+</button>
+
+
+
+<!-- MENSAGEM -->
+
+<div
+class="message"
+id="message"
+></div>
+
+
+
+<!-- DIVISÓRIA -->
+
+<div class="divider">
+ou
+</div>
+
+
+
+<!-- CADASTRO -->
+
+<p class="register">
+
+Ainda não tem uma conta?
+
+<a
+href="#"
+id="register"
+>
+Cadastre-se
+</a>
+
+</p>
+
+</form>
+
+</section>
+
+</main>
+
+
+
+<!-- =========================
+JAVASCRIPT
+========================== -->
+
+<script>
+
+const form =
+document.getElementById("loginForm");
+
+const message =
+document.getElementById("message");
+
+const forgot =
+document.getElementById("forgot");
+
+const register =
+document.getElementById("register");
+
+
+
+/* LOGIN */
+
+form.addEventListener("submit", function(event) {
+
+event.preventDefault();
+
+
+const email =
+document.getElementById("email").value.trim();
+
+const password =
+document.getElementById("password").value.trim();
+
+
+message.className = "message";
+
+
+/* Verifica campos */
+
+if (!email || !password) {
+
+message.textContent =
+"Preencha todos os campos. 🐾";
+
+message.classList.add("error");
+
+return;
+}
+
+
+/* Verifica tamanho da senha */
+
+if (password.length < 6) {
+
+message.textContent =
+"A senha precisa ter pelo menos 6 caracteres.";
+
+message.classList.add("error");
+
+return;
+}
+
+
+/* Login */
+
+message.textContent =
+"Login realizado com sucesso! Bem-vindo à Friends&Mel 🐶🧡";
+
+message.classList.add("success");
+
+});
+
+
+
+/* ESQUECI MINHA SENHA */
+
+forgot.addEventListener("click", function() {
+
+const email =
+document.getElementById("email").value.trim();
+
+
+if (!email) {
+
+alert(
+"Digite seu e-mail primeiro para recuperar a senha."
+);
+
+} else {
+
+alert(
+"Um link de recuperação seria enviado para: "
++ email
+);
+
+}
+
+});
+
+
+
+/* CADASTRO */
+
+register.addEventListener("click", function(event) {
+
+event.preventDefault();
+
+alert(
+"Área de cadastro da Friends&Mel."
+);
+
+});
+
+</script>
+
+</body>
+
+</html>
